@@ -1,7 +1,6 @@
 {-# LANGUAGE FlexibleInstances, MultiParamTypeClasses #-}
--- {-# LANGUAGE FlexibleInstances, FlexibleContexts, MultiParamTypeClasses #-}
 
-module Examples.KnapSackDP where
+module Examples.KnapSack where
 
 
 -- Haskell imports
@@ -75,8 +74,7 @@ instance Decompose (Small (Decomposed Double)) Double where
   -- lift = Finite
   supportive _ x = x < 0
 
-
-names1   = ["Shell","BMW","WHO","Lufthansa","PepsiCo","Tesla","Dow Chemicals"]
+names1 = ["Shell","BMW","WHO","Lufthansa","PepsiCo","Tesla","Dow Chemicals"]
 
 weights1,values1 :: [Double]
 weights1 = [30,40,20,60,70,30,50]

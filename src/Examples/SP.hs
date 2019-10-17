@@ -1,7 +1,6 @@
 {-# LANGUAGE FlexibleInstances, MultiParamTypeClasses #-}
--- {-# LANGUAGE FlexibleInstances, FlexibleContexts, MultiParamTypeClasses #-}
 
-module Examples.SPDP where
+module Examples.SP where
 
 
 -- Haskell imports
@@ -72,11 +71,7 @@ class Semiring r => SP l r where
 -- (6) path, prinicpal 
 -- (7) pair, decomposed path, decomposed principal 
 
--- Label and path types
-type DOUBLE = Large Double
-type Doubles = Decomposed Double
-type DOUBLES = Large Doubles -- Large (Decomposed Double)
--- type Path l = (l,[Edge])
+
 type Path l = View l [Edge]
 
 
@@ -92,13 +87,11 @@ instance SP Double (Path (Large Double)) where
 
 -- (3) length, decomposed
 --
--- instance SP [Double] DOUBLES where
 instance SP [Double] (Large (Decomposed Double)) where
   result (_,l) = Finite (Values l)
 
 -- (4) path, decomposed
 --
--- instance SP [Double] (Path DOUBLES) where
 instance SP [Double] (Path (Large (Decomposed Double))) where
   result (e,l) = View (Finite (Values l)) [e]
 
@@ -138,16 +131,12 @@ gd = map (\(u,v,l)->((u,v),l)) es
 g :: Graph Double
 g = map (\(u,v,l)->((u,v),sum l)) es
 
--- sp1 :: DOUBLE
 sp1 = shortestPath g 1 4 :: Large Double
 
--- sp2 :: Path DOUBLE
 sp2 = shortestPath g 1 4 :: Path (Large Double)
 
--- sp3 :: DOUBLES
 sp3 = shortestPath gd 1 4 :: Large (Decomposed Double)
 
--- sp4 :: Path DOUBLES
 sp4 = shortestPath gd 1 4 :: Path (Large (Decomposed Double))
 
 sp5 = shortestPath gd 1 4 :: Large (Principal Double)
@@ -185,7 +174,6 @@ pathAgg f g vs@(v:_) = path' g vs
 p = sp3
 p' = Finite $ Values [17.0,10,3,1]
 
--- dsa = (shortestPath gd 1 4 :: Large (Decomposed Double)) - Finite (Values [17.0,10,3,1])
 diff = p - p'
 dom = mds p p'
 
@@ -214,8 +202,6 @@ spPair (g,v,w) = shortestPath g v w
 gT :: Node -> SPInput
 gT v = (gd,1,v)
 
--- p12 = explain (spD,spP) categories (gT 2)
--- p14 = explain (spD,spP) categories (gT 4)
 
 -- Explanation of why the two paths are different? 
 pPair = explain spPair categories (gT 4)

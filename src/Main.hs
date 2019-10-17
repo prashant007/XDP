@@ -5,7 +5,7 @@ import Explain.Decomposed
 
 import Examples.KnapSackDP
 import Semiring.View 
-import Examples.SPDP
+import Examples.SP
 
 main = do 
   -- let 
