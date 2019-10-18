@@ -4,5 +4,5 @@ This package is an executable, i.e it can be used when installed. The installati
 2) Execute "cabal configure"
 3) Execute "cabal install" 
 4) The package is now installed and can be used in a Haskell file like a normal import. For example - if we wanted to use the functions defined for shortest path example (Examples.SPDP file) then we can import the following:
-import Examples.SPDP 
+import Examples.SP
 Similarly any other files could be imported. 
