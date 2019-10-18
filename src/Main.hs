@@ -3,7 +3,7 @@ module Main where
 import Semiring.Large
 import Explain.Decomposed
 
-import Examples.KnapSackDP
+import Examples.KnapSack
 import Semiring.View 
 import Examples.SP
 
