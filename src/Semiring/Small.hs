@@ -22,7 +22,7 @@ instance Num a => Num (Small a) where
   (*) = liftA2 (*)
   (-) = liftA2 (-)
   negate = fmap negate
-  abs    = fmap negate
+  abs    = fmap abs
   signum = fmap signum
   fromInteger = Finite'. fromInteger
 
