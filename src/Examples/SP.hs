@@ -205,3 +205,25 @@ gT v = (gd,1,v)
 
 -- Explanation of why the two paths are different? 
 pPair = explain spPair categories (gT 4)
+
+{- 
+*Main> sp1
+30.0
+*Main> sp2
+30.0 <~ [(1,2),(2,5),(5,4)]
+*Main> sp3
+Values {values = [20.0,4.0,4.0,2.0]}
+*Main> sp3
+Values {values = [20.0,4.0,4.0,2.0]}
+*Main> sp4
+Values {values = [20.0,4.0,4.0,2.0]} <~ [(1,2),(2,5),(5,4)]
+*Main> sp5
+[17.0,10.0,3.0,1.0]
+*Main> sp6
+[17.0,10.0,3.0,1.0] <~ [(1,3),(3,4)]
+*Main> sp7
+(Values {values = [20.0,4.0,4.0,2.0]},[17.0,10.0,3.0,1.0])
+*Main> pPair
+(Values {values = [20.0,4.0,4.0,2.0]},Just (Values {values = [17.0,10.0,3.0,1.0]},Values {values = [Traffic:-6.0]}))
+-}
+

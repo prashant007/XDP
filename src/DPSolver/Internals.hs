@@ -46,7 +46,7 @@ data DPState m chart ind cell = DPState {
 -}
 
 {-# LANGUAGE GeneralizedNewtypeDeriving, FlexibleContexts, FlexibleInstances, TypeFamilies, KindSignatures, 
-             ExistentialQuantification, ConstraintKinds
+             ExistentialQuantification, ConstraintKinds, UndecidableInstances
 #-}
 module DPSolver.Internals where
 import Control.Monad.State.Strict
